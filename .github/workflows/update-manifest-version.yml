@@ -1,0 +1,22 @@
+name: Update Manifest Version
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update manifest version
+        run: |
+          TAG="v$(date +'%Y.%m.%d.%H%M%S')"
+          jq --arg v "$TAG" '.version = $v' manifest.json > manifest.tmp.json
+          mv manifest.tmp.json manifest.json
+          git add manifest.json
+          git commit -m "chore: bump manifest version to $TAG" || echo "No changes"
+          git push || echo "No changes to push"

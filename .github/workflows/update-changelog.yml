@@ -1,0 +1,25 @@
+name: Update Changelog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure Git user
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+      - name: Create changelog entry
+        run: |
+          TAG="v$(date +'%Y.%m.%d.%H%M%S')"
+          echo -e "## [${TAG}] - $(date +'%Y-%m-%d')\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+          git add CHANGELOG.md
+          git commit -m "docs: update changelog to ${TAG}" || echo "No changes"
+          git push || echo "No changes to push"
