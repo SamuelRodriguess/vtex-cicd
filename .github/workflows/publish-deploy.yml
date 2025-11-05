@@ -1,0 +1,16 @@
+name: Publish and Deploy VTEX IO App
+
+on:
+  push:
+    tags:
+      - "v[0-9]+\\.[0-9]+\\.[0-9]+"
+
+jobs:
+  publish_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/publish-deploy
+        with:
+          appKey: ${{ secrets.VTEX_TOOLBELT_KEY }}
+          appToken: ${{ secrets.VTEX_TOOLBELT_TOKEN }}
+          workspace: master
