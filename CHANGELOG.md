@@ -7,12 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Added
+- Slider Layout to home page2
 
-- Slider Layout to home page
-- Slider Layout to home page
-- Slider Layout to home page
+## [0.1.0] - 2025-11-05
 
 ### Added
 
+- Slider Layout to home page
 - Add interface for newsletter subscription event
