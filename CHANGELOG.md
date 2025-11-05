@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Changed
+### Added
 
-- Update GitHub actions/cache to v4
+- Slider Layout to home page
 
 ### Added
 
