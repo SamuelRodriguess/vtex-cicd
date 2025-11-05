@@ -12,7 +12,28 @@ jobs:
   publish_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/publish-deploy
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify changes in main or master
+        id: changes
+        run: |
+          # Obtém o commit base (retire da sua configuração real)
+          base_commit=$(git rev-parse HEAD^)
+          current_commit=$(git rev-parse HEAD)
+
+          # Verifica se há diferenças
+          if git diff --name-only $base_commit $current_commit | grep '.'; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Publish and Deploy
+        if: steps.changes.outputs.changes == 'true'
+        uses: ./.github/actions/publish-deploy
         with:
           appKey: ${{ secrets.VTEX_TOOLBELT_KEY }}
           appToken: ${{ secrets.VTEX_TOOLBELT_TOKEN }}
