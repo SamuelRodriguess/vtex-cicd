@@ -1,9 +1,11 @@
 name: Create Changelog
 
 on:
+  create:
+    tags:
+      - '*'
   release:
     types: [published]
-
   push:
     branches:
       - master
@@ -24,23 +26,24 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event.release.target_commitish }}
+          ref: ${{ github.ref }}
 
       - name: Extract release date from git tag
         id: release_date
         run: |
-          echo "date=$(git log -1 --date=short --format=%ad '${{ github.event.release.tag_name }}')" >> $GITHUB_OUTPUT
+          TAG=${{ github.event.release.tag_name || github.ref_name }}
+          echo "date=$(git log -1 --date=short --format=%ad \"$TAG\")" >> $GITHUB_OUTPUT
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           release-date: ${{ steps.release_date.outputs.date }}
-          release-notes: ${{ github.event.release.body }}
-          latest-version: ${{ github.event.release.tag_name }}
+          release-notes: ${{ github.event.release.body || '' }}
+          latest-version: ${{ github.event.release.name || github.event.release.tag_name || github.ref_name }}
 
       - name: Commit updated CHANGELOG
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          branch: ${{ github.event.release.target_commitish }}
+          branch: ${{ github.ref_name }}
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
