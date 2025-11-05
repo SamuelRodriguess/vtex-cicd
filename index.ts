@@ -4,3 +4,4 @@ function greet(name: string) {
 
 greet("joao"); 
 greet("outronome"); 
+greet("silva"); 

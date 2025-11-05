@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+- Slider Layout to home page4
+
+## [0.4.0] - 2025-11-02
+
 - Slider Layout to home page3
 
 ## [0.3.0] - 2025-11-02
