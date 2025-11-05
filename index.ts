@@ -2,4 +2,4 @@ function greet(name: string) {
   console.log("Olá, " + name);
 }
 
-greet("1234"); 
+greet("joao"); 
