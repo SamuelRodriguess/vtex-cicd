@@ -1,31 +1,15 @@
-name: "Update Changelog"
+name: Changelog CI
 
 on:
-  release:
-    types: [released]
+  pull_request:
+    types: [ opened ]
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.release.target_commitish }}
+      - uses: actions/checkout@v2
 
-      - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@v1
-        with:
-          latest-version: ${{ github.event.release.tag_name }}
-          release-notes: ${{ github.event.release.body }}
-
-      - name: Commit updated CHANGELOG
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: ${{ github.event.release.target_commitish }}
-          commit_message: "docs: changelog"
-          file_pattern: CHANGELOG.md
+      - name: Run Changelog CI
+        uses: saadmk11/changelog-ci@v1.2.0
