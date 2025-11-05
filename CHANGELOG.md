@@ -1,7 +1,3 @@
-## [v2025.11.05.034059] - 2025-11-05
-
-## [v2025.11.05.031107] - 2025-11-05
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
