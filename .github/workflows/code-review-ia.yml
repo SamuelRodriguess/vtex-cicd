@@ -1,4 +1,4 @@
-name: "Code Review by Gemini AI"
+name: Code Review by Gemini AI
 
 on:
   pull_request:
