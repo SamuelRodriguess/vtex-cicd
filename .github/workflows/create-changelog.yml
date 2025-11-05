@@ -1,9 +1,12 @@
 name: "Create Changelog"
 
 on:
+  push:
+    branches:
+      - master
   release:
     types: [released]
-
+    
 jobs:
   update:
     runs-on: ubuntu-latest
