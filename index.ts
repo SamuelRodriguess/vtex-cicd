@@ -7,3 +7,5 @@ function card() {
 greet("joao"); 
 greet("outronome"); 
 card(); 
+card(); 
+card(); 
