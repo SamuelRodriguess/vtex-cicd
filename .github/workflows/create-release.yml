@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
   build:
@@ -24,6 +23,7 @@ jobs:
         with:
           create_tag: true
           initial_version: 0.1.0
+          manual_bump: patch
 
   release:
     needs: build
