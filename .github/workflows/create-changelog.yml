@@ -2,18 +2,28 @@ name: Changelog
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "*"
 
 jobs:
-  changelog:
+  create-release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Generate release changelog
-        uses: janheinrichmerker/action-github-changelog-generator@v2.3
+      - name: Create changelog text
+        id: changelog
+        uses: loopwerk/tag-changelog@v1
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude_types: other,doc,chore
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref }}
+          name: Release ${{ github.ref }}
+          body: ${{ steps.changelog.outputs.changes }}
           token: ${{ secrets.GITHUB_TOKEN }}
