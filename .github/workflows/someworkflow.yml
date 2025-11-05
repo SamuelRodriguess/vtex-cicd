@@ -1,0 +1,25 @@
+name: CI Pull Requests
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+        env:
+          RUNNER_TEMP: /tmp
+
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+
+      - name: Lint project
+        uses: vtex/action-lint@master
