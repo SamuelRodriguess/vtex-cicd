@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - Slider Layout to home page22
+- Slider Layout to home page3
 
 ## [0.4.0] - 2025-11-02
 
