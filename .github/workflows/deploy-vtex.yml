@@ -21,4 +21,6 @@ jobs:
           workspace: master
       - name: Deploy app
         run: |
+          vtex publish
           vtex deploy -f
+          vtex update
