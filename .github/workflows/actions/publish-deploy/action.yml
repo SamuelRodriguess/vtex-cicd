@@ -1,5 +1,4 @@
 name: Publish and Deploy VTEX IO App
-author: Tiago Freire <freire.tiago@gmail.com>
 description: An action that publishes and deploys a VTEX IO app after release
 branding:
   icon: 'box'
@@ -91,15 +90,14 @@ runs:
         echo "::endgroup::"
       shell: bash
 
-    - name: Create release
+    - name: Update app
       run: |
-        echo "::group::Create release $tag"
-        gh release create "$tag" \
-          --repo="$GITHUB_REPOSITORY" \
-          --title="$tag" \
-          --generate-notes
+        echo "::group::Update app ${{ env.APP_FULL_NAME }}"
+        yes | vtex update --force 2>&1 | tee update.log || true
+        if ! grep -q "updated successfully" update.log; then
+          echo -e "\n❌ Failed to update app ${{ env.APP_FULL_NAME }}."
+          exit 1
+        fi
+        echo "✅ App updated successfully."
         echo "::endgroup::"
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-        tag: ${{ github.ref_name }}
       shell: bash
