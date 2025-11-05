@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Publish and Deploy
         if: steps.changes.outputs.changes == 'true'
-        uses: ./.github/actions/action.yml
+        uses: SamuelRodriguess/vtex-cicd@main
         with:
           appKey: ${{ secrets.VTEX_TOOLBELT_KEY }}
           appToken: ${{ secrets.VTEX_TOOLBELT_TOKEN }}
