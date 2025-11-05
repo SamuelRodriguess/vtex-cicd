@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Publish and Deploy
         if: steps.changes.outputs.changes == 'true'
-        uses: ./action.yml
+        uses: ./.github/actions/action.yml
         with:
           appKey: ${{ secrets.VTEX_TOOLBELT_KEY }}
           appToken: ${{ secrets.VTEX_TOOLBELT_TOKEN }}
