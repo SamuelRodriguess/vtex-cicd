@@ -1,6 +1,6 @@
 {
-  "name": "vtex-cicd-workflow",
-  "vendor": "vtex",
+  "name": "cicd-workflow",
+  "vendor": "frncubo",
   "version": "0.1.0",
   "title": "VTEX CI/CD Workflow",
   "description": "Automate VTEX app deployments and versioning using GitHub Actions.",
