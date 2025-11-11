@@ -8,6 +8,10 @@ export function handleEvents(e: PixelMessage) {
       break
     }
 
+    case 'vtex:addToCart': {
+      break
+    }
+
     default: {
       break
     }
