@@ -12,6 +12,10 @@ export function handleEvents(e: PixelMessage) {
       break
     }
 
+    case 'vtex:productImpression': {
+      break
+    }
+
     default: {
       break
     }

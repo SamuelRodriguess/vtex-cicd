@@ -1,56 +1,41 @@
-{{ if .Versions -}}
-<a name="unreleased"></a>
+{{- /* Define the changelog title */ -}}
+# Changelog
+
+{{- /* Unreleased section with grouped commits */ -}}
+{{- if .Unreleased.CommitGroups }}
 ## [Unreleased]
 
-{{ if .Unreleased.CommitGroups -}}
-{{ range .Unreleased.CommitGroups -}}
+{{- range .Unreleased.CommitGroups }}
 ### {{ .Title }}
-{{ range .Commits -}}
+
+{{- range .Commits }}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
-{{ end }}
-{{ end -}}
-{{ end -}}
-{{ end -}}
+{{- end }}
 
-{{ range .Versions }}
-<a name="{{ .Tag.Name }}"></a>
-## {{ if .Tag.Previous }}[{{ .Tag.Name }}]{{ else }}{{ .Tag.Name }}{{ end }} - {{ datetime "2006-01-02" .Tag.Date }}
-{{ range .CommitGroups }}
+{{ end }}
+{{ end }}
+
+{{- /* Past versions with date and grouped commits */ -}}
+{{- range .Versions }}
+## [{{ .Tag.Name }}] - {{ datetime "2006-01-02" .Tag.Date }}
+
+{{- range .CommitGroups }}
 ### {{ .Title }}
-{{ range .Commits }}
+
+{{- range .Commits }}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
-{{ end }}
+{{- end }}
+
 {{ end }}
 
-{{- if .RevertCommits }}
-### Reverts
-{{ range .RevertCommits }}
-- {{ .Revert.Header }}
-{{ end }}
 {{ end }}
 
-{{- if .MergeCommits }}
-### Pull Requests
-{{ range .MergeCommits }}
-- {{ .Header }}
-{{ end }}
-{{ end }}
-
-{{- if .NoteGroups }}
-{{ range .NoteGroups }}
-### {{ .Title }}
-{{ range .Notes }}
-{{ .Body }}
-{{ end }}
-{{ end }}
-{{ end }}
-{{ end }}
-
+{{- /* Links for comparisons in repository */ -}}
 {{- if .Versions }}
 [Unreleased]: {{ .Info.RepositoryURL }}/compare/{{ (index .Versions 0).Tag.Name }}...HEAD
-{{ range .Versions }}
-{{ if .Tag.Previous }}
+{{- range .Versions }}
+{{- if .Tag.Previous }}
 [{{ .Tag.Name }}]: {{ $.Info.RepositoryURL }}/compare/{{ .Tag.Previous.Name }}...{{ .Tag.Name }}
-{{ end }}
-{{ end }}
-{{ end }}
+{{- end }}
+{{- end }}
+{{- end }}
