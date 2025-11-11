@@ -1,7 +1,7 @@
 {{ define "title" }}# {{ .Title }}{{ end }}
 
-{{ range .Sections }}
-## {{ .Title }}
+{{ range .Releases }}
+## {{ .Name }}
 
 {{ range .Commits }}
 - {{ .Message }} ({{ .Hash.Short }})
