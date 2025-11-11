@@ -90,10 +90,22 @@ runs:
         echo "::endgroup::"
       shell: bash
 
+    - name: Install app
+      run: |
+        echo "::group::Install app ${{ env.APP_FULL_NAME }}"
+        yes | vtex install ${{ env.APP_FULL_NAME }} 2>&1 | tee install.log || true
+        if ! grep -q "installed successfully" install.log; then
+          echo "⚠️ Warning: App may already be installed or installation not confirmed."
+        else
+          echo "✅ App installed successfully."
+        fi
+        echo "::endgroup::"
+      shell: bash
+
     - name: Update app
       run: |
         echo "::group::Update app ${{ env.APP_FULL_NAME }}"
-        yes | vtex update --force 2>&1 | tee update.log || true
+        yes | vtex update 2>&1 | tee update.log || true
         if ! grep -q "updated successfully" update.log; then
           echo -e "\n❌ Failed to update app ${{ env.APP_FULL_NAME }}."
           exit 1
