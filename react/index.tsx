@@ -7,10 +7,6 @@ export function handleEvents(e: PixelMessage) {
   // eslint-disable-next-line no-console
   console.log('cicd ok')
   switch (e.data.eventName) {
-    case 'vtex:pageView': {
-      break
-    }
-
     case 'vtex:addToCart': {
       break
     }
