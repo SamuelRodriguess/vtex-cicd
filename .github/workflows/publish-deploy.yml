@@ -37,4 +37,4 @@ jobs:
         with:
           appKey: ${{ secrets.VTEX_TOOLBELT_KEY }}
           appToken: ${{ secrets.VTEX_TOOLBELT_TOKEN }}
-          workspace: ${{ secrets.VTEX_TOOLBELT_WORKSPACE }}
+          workspace: master
