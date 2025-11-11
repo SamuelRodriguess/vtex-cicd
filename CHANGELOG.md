@@ -7,10 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- Test changelog Update GitHub actions/cache to v4
+### Changed
+
+- Update GitHub actions/cache to v4
+
+[v0.1.4]
 
 ### Changed
 
+- Update GitHub actions/cache to v4
 - Update GitHub actions/cache to v4
 
 ### Added
