@@ -4,8 +4,6 @@ function greet(name: string) {
 function card() {
   return null
 }
-greet("joao"); 
+greet(1); 
 greet("outronome"); 
-card(); 
-card(); 
 card(); 
