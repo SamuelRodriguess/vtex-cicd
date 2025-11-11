@@ -4,6 +4,15 @@
   "version": "0.1.0",
   "title": "VTEX CI/CD Workflow",
   "description": "Automate VTEX app deployments and versioning using GitHub Actions.",
+  "billingOptions": {
+    "termsURL": "https://compliance.vtex.com/gdpr/policies/vtex-privacy-policy",
+    "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    },
+    "free": true,
+    "type": "free",
+    "availableCountries": ["*"]
+  },
   "builders": {
     "react": "3.x",
     "store": "0.x",
@@ -12,6 +21,17 @@
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x"
+  },
+  "settingsSchema": {
+    "title": "YOUR APP NAME",
+    "type": "object",
+    "properties": {
+      "gtmId": {
+        "title": "SAMPLE FIELD",
+        "description": "Enter the ID (GTM-XXXX) from your Google Tag Manager",
+        "type": "string"
+      }
+    }
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
