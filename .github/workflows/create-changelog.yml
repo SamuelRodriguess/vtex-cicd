@@ -2,7 +2,6 @@ name: Generate Changelog
 
 on:
   push:
-<<<<<<< HEAD
     branches:
       - main
       - master
@@ -16,10 +15,6 @@ permissions:
   contents: write  # Necessário para comitar CHANGELOG.md
   pull-requests: write
 
-=======
-    tags:
-      - 'Release v*'
->>>>>>> fce5ac8561a04735a6d6b55520766bae78e67327
 jobs:
   generate-changelog:
     runs-on: ubuntu-latest
