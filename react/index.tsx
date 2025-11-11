@@ -16,6 +16,10 @@ export function handleEvents(e: PixelMessage) {
       break
     }
 
+    case 'vtex:productClick': {
+      break
+    }
+
     default: {
       break
     }
