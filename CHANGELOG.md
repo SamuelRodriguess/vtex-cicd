@@ -1,11 +1,4 @@
 
-## [0.3.0] - 03/12/2015
-
-### Changed
-
-- Updat
-e GitHub actions/cache to v4
-- Update GitHub actions/cache to v4
 ## [v2025.11.11.43] - 2025-11-11
 
 
