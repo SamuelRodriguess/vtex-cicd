@@ -93,7 +93,7 @@ runs:
     - name: Update app
       run: |
         echo "::group::Update app ${{ env.APP_FULL_NAME }}"
-        yes | vtex update --force 2>&1 | tee update.log || true
+        yes | vtex update 2>&1 | tee update.log || true
         if ! grep -q "updated successfully" update.log; then
           echo -e "\n❌ Failed to update app ${{ env.APP_FULL_NAME }}."
           exit 1
