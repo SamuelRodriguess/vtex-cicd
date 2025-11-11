@@ -1,6 +1,3 @@
-{{- /* Define the changelog title */ -}}
-# Changelog
-
 {{- /* Unreleased section with grouped commits */ -}}
 {{- if .Unreleased.CommitGroups }}
 ## [Unreleased]
