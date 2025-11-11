@@ -1,4 +1,7 @@
 
+## [v2025.11.11.41] - 2025-11-11
+
+
 ## [v2025.11.11.40] - 2025-11-11
 
 
@@ -107,10 +110,10 @@
 ## [v2025.11.11.04] - 2025-11-10
 
 
-## [v2025.11.11.05] - 2025-11-10
-
-
 ## [v2025.11.11.06] - 2025-11-10
+
+
+## [v2025.11.11.05] - 2025-11-10
 
 
 ## [v2025.11.11.03] - 2025-11-10
@@ -281,7 +284,8 @@
 ## [v2025.11.05.031106] - 2025-11-05
 
 
-[Unreleased]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.40...HEAD
+[Unreleased]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.41...HEAD
+[v2025.11.11.41]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.40...v2025.11.11.41
 [v2025.11.11.40]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.39...v2025.11.11.40
 [v2025.11.11.39]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.38...v2025.11.11.39
 [v2025.11.11.38]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.37...v2025.11.11.38
@@ -317,9 +321,9 @@
 [v2025.11.11.13]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.08...v2025.11.11.13
 [v2025.11.11.08]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.07...v2025.11.11.08
 [v2025.11.11.07]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.04...v2025.11.11.07
-[v2025.11.11.04]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.05...v2025.11.11.04
-[v2025.11.11.05]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.06...v2025.11.11.05
-[v2025.11.11.06]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.03...v2025.11.11.06
+[v2025.11.11.04]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.06...v2025.11.11.04
+[v2025.11.11.06]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.05...v2025.11.11.06
+[v2025.11.11.05]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.03...v2025.11.11.05
 [v2025.11.11.03]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.02...v2025.11.11.03
 [v2025.11.11.02]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.11.01...v2025.11.11.02
 [v2025.11.11.01]: https://github.com/SamuelRodriguess/vtex-cicd/compare/v2025.11.05.31147...v2025.11.11.01
