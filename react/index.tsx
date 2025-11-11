@@ -1,3 +1,4 @@
+/* eslint-disable no-duplicate-case */
 import { canUseDOM } from 'vtex.render-runtime'
 
 import type { PixelMessage } from './typings/events'
