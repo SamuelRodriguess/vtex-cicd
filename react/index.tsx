@@ -23,6 +23,10 @@ export function handleEvents(e: PixelMessage) {
       break
     }
 
+    case 'vtex:removeFromCart': {
+      break
+    }
+
     default: {
       break
     }
