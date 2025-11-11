@@ -106,10 +106,13 @@ runs:
       run: |
         echo "::group::Update app ${{ env.APP_FULL_NAME }}"
         yes | vtex update 2>&1 | tee update.log || true
-        if ! grep -q "updated successfully" update.log; then
+        if grep -q "No updates available" update.log; then
+          echo "ℹ️ No updates available."
+        elif ! grep -q "updated successfully" update.log; then
           echo -e "\n❌ Failed to update app ${{ env.APP_FULL_NAME }}."
-          exit 1
+        exit 1
+        else
+          echo "✅ App updated successfully."
         fi
-        echo "✅ App updated successfully."
         echo "::endgroup::"
       shell: bash

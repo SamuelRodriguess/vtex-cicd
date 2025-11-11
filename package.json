@@ -1,5 +1,5 @@
 {
-  "name": "YOURAPPNAME",
+  "name": "cicd-workflow",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
