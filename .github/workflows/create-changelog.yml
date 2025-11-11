@@ -1,37 +1,27 @@
-name: Changelog generator
+name: Generate Changelog
+
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   generate-changelog:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Changelog generator
-      uses: dittrichlucas/changelog-generator@main
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
-        token: ${{ github.token }}
-        repo: ${{ github.repository }}
+        fetch-depth: 0  # necessário para buscar todo histórico e tags
 
-    - name: Create Pull Request
-      id: cpr
-      uses: peter-evans/create-pull-request@v3
+    - name: Generate Changelog
+      uses: requarks/changelog-action@v1
       with:
-        token: ${{ github.token}}
-        commit-message: "project/ci: update the changelog file with new release deliveries"
-        committer: GitHub <noreply@github.com>
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        signoff: true
-        branch: release-branch
-        delete-branch: true
-        title: "project/ci: generate the changelog file for the new release"
-        body: |
-          Update the `CHANGELOG.md` file with the deliveries of the new release
-        draft: false
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Check outputs
+    - name: Commit changelog
       run: |
-        echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-        echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add CHANGELOG.md
+        git commit -m "docs: update changelog [skip ci]" || echo "No changes to commit"
+        git push
